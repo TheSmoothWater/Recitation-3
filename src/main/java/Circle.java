@@ -14,10 +14,12 @@ public class Circle
     /**
      * Default constructor that initializes an instance of Circle
      * to (0,0) with a radius of 1.0.
+     * Initialized at the center
      */
     public Circle()
     {
-
+        location = new Point();
+        radius = 1.0;
     }
 
     /**
@@ -28,7 +30,8 @@ public class Circle
      */
     public Circle(double radius)
     {
-
+        location = new Point();
+        this.radius = radius;
     }
 
     /**
@@ -40,7 +43,9 @@ public class Circle
      */
     public Circle(Point location, double radius)
     {
-
+        this.location = new Point();
+        setLocation(location);
+        setRadius(radius);
     }
 
     //accessors
@@ -51,7 +56,7 @@ public class Circle
      */
     public double getRadius()
     {
-
+        return radius;
     }
 
     /**
@@ -61,7 +66,7 @@ public class Circle
      */
     public Point getLocation()
     {
-
+        return new Point(location); //Always return copy of object
     }
 
     // mutator methods
@@ -72,7 +77,7 @@ public class Circle
      */
     public void setRadius(double radius)
     {
-
+        this.radius = radius;
     }
 
     /**
@@ -82,7 +87,7 @@ public class Circle
      */
     public void setLocation(Point location)
     {
-
+        this.location = new Point(location);
     }
 
     // other methods
@@ -94,7 +99,7 @@ public class Circle
      */
     public boolean contains(Point p)
     {
-
+        return location.distanceTo(p) <= radius;
     }
 
     /**
@@ -105,7 +110,7 @@ public class Circle
      */
     public boolean intersects(Circle aCircle)
     {
-
+        return this.getLocation().distanceTo(aCircle.getLocation()) <= this.radius;
     }
 
     /**
